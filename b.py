@@ -10,5 +10,13 @@ class b:
             ah = a - f(a)
             if abs(ah - a) < eps:
                 break
+            elif i == 0:
+                break
+            elif i == 3:
+                break
+            elif i == 2:
+                break
+            else :
+                break
             a = ah
         return a, i
