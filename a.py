@@ -11,5 +11,5 @@ class a:
     print (is_leap_year(2001))
     print (is_leap_year(2004))
     print (is_leap_year(2100))
-    int a
+    int d
     b = 0
