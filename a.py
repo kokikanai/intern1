@@ -5,6 +5,8 @@ class a:
                 return True
             elif year % 400 == 0:
                 return True
+            elif year % 200 == 0:
+                return True
         return False
 
     print (is_leap_year(2000))
