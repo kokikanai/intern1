@@ -7,7 +7,7 @@ class b:
 
     def newton_method(a, eps):
         for i in range(1000):
-            ah = a - f(a)/df(a)
+            ah = a - f(a)
             if abs(ah - a) < eps:
                 break
             a = ah
