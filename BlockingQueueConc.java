@@ -18,6 +18,7 @@ public class BlockingQueueConc<T> {
 
     public BlockingQueueConc(int capacity) {
         this.capacity = capacity;
+        
     }
 
     public void put(T element) throws InterruptedException {
@@ -25,6 +26,7 @@ public class BlockingQueueConc<T> {
         try {
             while (queue.size() == capacity) {
                 notFull.await();
+                
             }
 
             queue.add(element);
@@ -40,6 +42,7 @@ public class BlockingQueueConc<T> {
         try {
             while (queue.isEmpty()) {
                 notEmpty.await();
+                
             }
 
             T item = queue.remove();

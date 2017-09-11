@@ -9,6 +9,7 @@ class A implements Cloneable {
 
     private A() throws IllegalAccessException {
 //        throw new IllegalAccessException("opa");
+
         System.out.println("A : in constructor()");
     }
 
@@ -21,11 +22,13 @@ class B implements Cloneable {
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
+        
     }
 
     @Override
     public String toString() {
         return " b : " + String.valueOf(b);
+        
     }
 }
 
@@ -37,11 +40,13 @@ class C implements Cloneable {
     @Override
     public String toString() {
         return " c : " + String.valueOf(c) + "\n" + bb.toString();
+        
     }
 
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
+        
     }
 }
 
@@ -56,7 +61,6 @@ class D implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         D ddd = (D) super.clone();
 
-
         ddd.c = (C) c.clone();
         ddd.intarr = intarr.clone();
         return ddd;
@@ -65,6 +69,7 @@ class D implements Cloneable {
     @Override
     public String toString() {
         return "s : " + s + ", intarr[0] : " + intarr[0] + "\n" + c.toString();
+        
     }
 }
 
@@ -76,43 +81,49 @@ public class Main {
         Input(InputStream stream) throws IOException {
             bf = new BufferedReader(new InputStreamReader(stream));
             st = new StringTokenizer("");
+            
         }
 
         int nextInt() throws IOException {
             if (!st.hasMoreTokens())
                 st = new StringTokenizer(bf.readLine());
-
             return Integer.parseInt(st.nextToken());
         }
 
         long nextLong() throws IOException {
             if (!st.hasMoreTokens())
                 st = new StringTokenizer(bf.readLine());
+            
             return Long.parseLong(st.nextToken());
         }
 
         double nextDouble() throws IOException {
             if (!st.hasMoreTokens())
                 st = new StringTokenizer(bf.readLine());
+            
             return Double.parseDouble(st.nextToken());
         }
 
         void readLine() throws IOException {
             st = new StringTokenizer(bf.readLine());
+            
         }
 
         String nextString() throws IOException {
             if (!st.hasMoreTokens())
                 st = new StringTokenizer(bf.readLine());
+            
             return st.nextToken();
         }
 
         String nextLine() throws IOException {
             return bf.readLine();
+            
         }
 
         void close() throws IOException {
             bf.close();
+            
         }
     }
 
@@ -127,11 +138,13 @@ public class Main {
                 x = a;
                 y = b;
                 p = k;
+                
             }
 
             @Override
             public int compareTo(Point o) {
                 return Integer.compare(this.x, o.x);
+                
             }
         }
 
@@ -141,12 +154,16 @@ public class Main {
                 Constructor<?> constructor = c.getDeclaredConstructors()[0];
                 constructor.setAccessible(true);
                 constructor.newInstance();
+                
             } catch (InstantiationException e) {
                 e.printStackTrace();
+                
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
+                
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
+                
             }
         }
 
@@ -183,6 +200,7 @@ public class Main {
                 d.c.c = -99;
                 d.intarr[0] = -2;
 
+                
                 System.out.println(d);
                 System.out.println(clone2);
 
@@ -255,6 +273,7 @@ public class Main {
 
         double sum(double[] a) {
             double res = 0;
+            
             for (double d : a) {
                 res += d;
             }
@@ -266,6 +285,7 @@ public class Main {
             System.out.println("\nIn test\n------------");
             for (Operation op : opSet.getEnumConstants()) {
                 System.out.printf("%.2f %s %.2f = %.2f%n", a, op, b, op.apply(a, b));
+                
             }
         }
 
@@ -274,7 +294,6 @@ public class Main {
             int x1 = 0;
             int x2 = 0;
             Random random = new Random();
-
             for (int i = 0; i < 1000; i++) {
 
                 double[] arr = random.doubles(10).toArray();
@@ -302,7 +321,6 @@ public class Main {
 
         public void ex1() throws InterruptedException {
             System.out.println("Ex1 : \n------------------");
-
             BlockingQueueConc<Integer> b = new BlockingQueueConc<>(10);
 
             Thread t1 = new Thread(new Runnable() {
@@ -325,7 +343,6 @@ public class Main {
 
             Thread t2 = new Thread(new Runnable() {
                 Random random = new Random();
-
                 @Override
                 public void run() {
                     try {
@@ -355,7 +372,6 @@ public class Main {
 
         boolean oj = System.getProperty("ONLINE_JUDGE") != null;
         in = new Input(oj ? System.in : new FileInputStream("//home/bamboo/GitProjects/study/Acm/input.txt"));
-
         // in = new Input(System.in);
         // in = new Input(new FileInputStream("D:/Codes/Java/input.txt"));
         new Problem().solve();

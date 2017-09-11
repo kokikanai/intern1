@@ -6,6 +6,7 @@ public enum ExtendedOperation implements Operation {
         @Override
         public double apply(double a, double b) {
             return a + b;
+            
         }
     },
 
@@ -13,6 +14,7 @@ public enum ExtendedOperation implements Operation {
         @Override
         public double apply(double a, double b) {
             return a - b;
+            
         }
     },
 
@@ -20,6 +22,7 @@ public enum ExtendedOperation implements Operation {
         @Override
         public double apply(double a, double b) {
             return a * b;
+            
         }
     },
 
@@ -27,6 +30,7 @@ public enum ExtendedOperation implements Operation {
         @Override
         public double apply(double a, double b) {
             return a / b;
+            
         }
     };
 
@@ -34,11 +38,13 @@ public enum ExtendedOperation implements Operation {
 
     ExtendedOperation(String action) {
         this.action = action;
+        
     }
 
 
     @Override
     public String toString() {
         return action;
+        
     }
 }
